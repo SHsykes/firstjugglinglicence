@@ -1,12 +1,23 @@
 {% extends "layout.html" %}
 
+
 {% block pageTitle %}
   Question page template – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
+
 {% block beforeContent %}
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+{{ govukPhaseBanner({
+  tag: {
+    text: "alpha"
+  },
+  html: 'This is a new service – your <a class="govuk-link" href="/feedback-page">feedback</a> will help us to improve it.'
+}) }}
   <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
 {% endblock %}
+
+
 
 {% block content %}
 
@@ -18,6 +29,8 @@
 
         <p>{% from "govuk/components/radios/macro.njk" import govukRadios %}
 
+
+          
 {{ govukRadios({
   idPrefix: "how-many-balls",
   name: "how-many-balls",
